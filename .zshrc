@@ -2,6 +2,7 @@
 # .zshrc
 #
 # @author Jeff Geerling
+# changed by vmpr to my needs
 #
 
 # Colors.
@@ -13,13 +14,14 @@ export CLICOLOR_FORCE=1
 unsetopt nomatch
 
 # Nicer prompt.
-export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
+#export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
+export PS1="%F{green} %*%F %3~ %F{white}$ "
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
 # Custom $PATH with extra locations.
-export PATH=$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/usr/bin:$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
@@ -29,6 +31,11 @@ if [ -f ~/.aliases ]
 then
   source ~/.aliases
 fi
+
+# alias for ssh
+alias s='ssh -l root'
+alias sc='ssh -l centos'
+alias sd='ssh -l debian'
 
 # Set architecture-specific brew share path.
 arch_name="$(uname -m)"
@@ -126,3 +133,24 @@ export COMPOSER_MEMORY_LIMIT=-1
 #}
 #shopt -s extdebug
 #trap prod_command_trap DEBUG
+
+# ansible bug problem
+#export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Avoid duplicates and erase duplicates
+setopt HIST_IGNORE_DUPS       # Ignore duplicate commands in history
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicates first when trimming history
+setopt EXTENDED_HISTORY
+
+# Append to history file, don't overwrite it
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY     # Append history after each command
+setopt SHARE_HISTORY          # Share history across all sessions
+
+# Large history size
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+
+# Format timestamps in history
+HIST_STAMPS="yyyy-mm-dd %T"
