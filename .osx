@@ -21,6 +21,7 @@
 # @see: https://github.com/herrbischoff/awesome-macos-command-line
 #
 # @author Jeff Geerling
+# changed by vmpr for my needs
 
 # Warn that some commands will not be run if the script is not run as root.
 if [[ $EUID -ne 0 ]]; then
@@ -65,6 +66,9 @@ osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/S
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
+
+# show bluetooth icon on the menu bar
+defaults -currentHost write com.apple.controlcenter.plist Bluetooth -int -18
 
 # Trackpad: Haptic feedback (light, silent clicking)
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
