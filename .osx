@@ -73,6 +73,9 @@ defaults -currentHost write com.apple.controlcenter.plist Bluetooth -int -18
 # disable natural scrolling
 defaults write -g com.apple.swipescrolldirection -bool false
 
+# set mouse tracking speed a bit faster than standard
+defaults write -g com.apple.mouse.scaling  1.5
+
 # Trackpad: Haptic feedback (light, silent clicking)
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
 defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
