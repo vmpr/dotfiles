@@ -135,7 +135,7 @@ export COMPOSER_MEMORY_LIMIT=-1
 #trap prod_command_trap DEBUG
 
 # ansible bug problem
-#export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Avoid duplicates and erase duplicates
 setopt HIST_IGNORE_DUPS       # Ignore duplicate commands in history
