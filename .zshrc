@@ -15,13 +15,13 @@ unsetopt nomatch
 
 # Nicer prompt.
 #export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
-export PS1="%F{green} %*%F %3~ %F{white}$ "
+export PS1="%F{green} %* %F{cyan}%3~ %F{white}$ %f"
 
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
 # Custom $PATH with extra locations.
-export PATH=/usr/bin:$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/bin:$HOME/Library/Python/3.9/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
@@ -154,3 +154,6 @@ HISTFILE=~/.zsh_history
 
 # Format timestamps in history
 HIST_STAMPS="yyyy-mm-dd %T"
+
+# ActivityWatch minimal shell watcher (machine-specific; no-op if file absent).
+[ -f ~/.config/activitywatch/aw-shell-min.zsh ] && source ~/.config/activitywatch/aw-shell-min.zsh
