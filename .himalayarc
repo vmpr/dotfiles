@@ -1,0 +1,13 @@
+# himalaya v2 — read-only IMAP access to the shared Camplify inbox.
+# The password lives in the macOS Keychain (service himalaya-katringo), never in this file.
+# No smtp block on purpose: the camplify skill saves drafts, it must never send.
+[accounts.katringo]
+default = true
+mailbox.alias.drafts = "Drafts"
+mailbox.alias.sent = "Sent"
+mailbox.alias.trash = "Trash"
+email = "info@katringo.com.au"
+display-name = "Katringos Adventure Hire"
+imap.server = "imaps://mail.it-dd.net:993"
+imap.sasl.plain.username = "info@katringo.com.au"
+imap.sasl.plain.password.command = "security find-generic-password -w -s himalaya-katringo -a info@katringo.com.au"
