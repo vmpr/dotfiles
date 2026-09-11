@@ -21,7 +21,7 @@ export PS1="%F{green} %* %F{cyan}%3~ %F{white}$ %f"
 plugins=(git brew history kubectl history-substring-search)
 
 # Custom $PATH with extra locations.
-export PATH=/opt/homebrew/bin:/usr/bin:$HOME/Library/Python/3.9/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/bin:$HOME/Library/Python/3.9/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
 
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
