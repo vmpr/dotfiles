@@ -157,3 +157,6 @@ HIST_STAMPS="yyyy-mm-dd %T"
 
 # ActivityWatch minimal shell watcher (machine-specific; no-op if file absent).
 [ -f ~/.config/activitywatch/aw-shell-min.zsh ] && source ~/.config/activitywatch/aw-shell-min.zsh
+
+# Machine-local environment (secrets, tokens); not in this repo. No-op if absent.
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
