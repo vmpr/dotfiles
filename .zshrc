@@ -160,3 +160,4 @@ HIST_STAMPS="yyyy-mm-dd %T"
 
 # Machine-local environment (secrets, tokens); not in this repo. No-op if absent.
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+eval "$(starship init zsh)"
