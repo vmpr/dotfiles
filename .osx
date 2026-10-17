@@ -46,6 +46,9 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+# Reopen windows when relaunching apps (needed for iTerm2 session restoration)
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
@@ -273,6 +276,13 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Disable in-app rating requests from apps downloaded from the App Store.
 defaults write com.apple.appstore InAppReviewEnabled -int 0
+
+###############################################################################
+# iTerm2                                                                      #
+###############################################################################
+
+# Keep running jobs alive on ⌘Q so session restoration brings them back
+defaults write com.googlecode.iterm2 KillJobsInServersOnQuit -bool false
 
 ###############################################################################
 # Kill/restart affected applications                                          #
