@@ -59,6 +59,12 @@ alias gp='git pull --rebase'
 alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
+# Claude Code on a cswap account slot, this terminal only. Remote Control is
+# disabled so these sessions are not synced to the slot's account.
+_claude_slot() { local slot=$1; shift; cswap run "$slot" --share-history --require-session -- --settings '{"disableRemoteControl": true}' "$@"; }
+claude2() { _claude_slot 2 "$@"; }
+claude3() { _claude_slot 3 "$@"; }
+
 # Completions.
 autoload -Uz compinit && compinit
 # Case insensitive.
